@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://standboothvietnam.com/wp-content/uploads/2023/11/thiet-ke-salon-toc-1-1536x864.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+  }
+  
+  header {
+    background: rgba(51, 51, 51, 0.8);
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+  }
+  
+  .logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+  }
+  
+  table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  table th {
+    background: #f2f2f2;
+  }
+  
+  .add-button {
+    background: #28a745;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-button:hover {
+    background: #218838;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px 0;
+    background: rgba(51, 51, 51, 0.8);
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  

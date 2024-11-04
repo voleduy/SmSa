@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Salon Tóc</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://s3-alpha-sig.figma.com/img/67de/9a6c/3d8522dcdd00e0bfbfc337aeb6cb68b4?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WkpJPocH25ju00n9yLp8oShCaGq7zOJ8c7H9Pf4k86BYx2oJGEDp0O9j2lXIaLAHARvJLL68pvcz0oplc6gyshyEyfdx7kKnwHT4UrLAsssizHO2NI63oWnexmJ9Mq3KL1EuoxwuVYixwfcxfTQm7K8xIgmZEC2ezdrPCmG-1xS1tR6LrgNab0bCekCm0BUdP-Q3QjH~~4FocygTHUh4sOZQKkXYfONKOUxXUtZ~-kBPKZikOSu42sScWbnl~bK1uYXBIf9OyBendyNsb9UuJzjzBQ5IvmY0TvOjzp0ssVG2SKY-MmQb6Ozi7Xkd~x2VYlFYSpqWJiS~ckq6wD3udQ__" alt="Logo Salon Tóc">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#services">Dịch Vụ</a></li>
+                <li><a href="#about">Về Chúng Tôi</a></li>
+                <li><a href="#contact">Liên Hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Chào Mừng Đến Với Salon Tóc Của Chúng Tôi!</h1>
+            <p>Chúng tôi cung cấp những dịch vụ làm tóc tốt nhất để bạn trở nên xinh đẹp và tự tin.</p>
+            <a href="#services" class="cta-button">Xem Dịch Vụ</a>
+        </section>
+
+        <section id="services">
+            <h2>Dịch Vụ Nổi Bật</h2>
+            <div class="service-list">
+                <div class="service" onclick="openBooking('Cắt Tóc', 100000)">
+                    <h3>Cắt Tóc</h3>
+                    <p>Dịch vụ cắt tóc theo yêu cầu và phong cách của bạn.</p>
+                    <p class="price">Giá: 100.000 VNĐ</p>
+                </div>
+                <div class="service" onclick="openBooking('Gội Đầu', 50000)">
+                    <h3>Gội Đầu</h3>
+                    <p>Dịch vụ gội đầu thư giãn và chăm sóc tóc chuyên sâu.</p>
+                    <p class="price">Giá: 50.000 VNĐ</p>
+                </div>
+                <div class="service" onclick="openBooking('Nhuộm Tóc', 300000)">
+                    <h3>Nhuộm Tóc</h3>
+                    <p>Các màu nhuộm thời trang giúp bạn nổi bật hơn.</p>
+                    <p class="price">Giá: 300.000 VNĐ</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>Về Chúng Tôi</h2>
+            <p>Salon Tóc của chúng tôi có đội ngũ chuyên viên giàu kinh nghiệm, luôn sẵn sàng mang đến những trải nghiệm tốt nhất cho khách hàng.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Liên Hệ</h2>
+            <p>Nếu bạn có bất kỳ câu hỏi nào, hãy liên hệ với chúng tôi qua thông tin bên dưới.</p>
+            <p>Email: Smsa@salontoc.com</p>
+            <p>Điện thoại: 0123-456-789</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Salon Tóc. Bảo lưu mọi quyền.</p>
+    </footer>
+
+    <!-- Popup Lịch Hẹn -->
+    <div id="bookingPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Đặt Lịch Hẹn</h2>
+            <p id="serviceName">Dịch vụ: <span></span></p>
+            <p id="servicePrice">Giá: <span></span></p>
+            <form id="bookingForm" onsubmit="return submitBooking(event)">
+                <label for="date">Chọn ngày:</label>
+                <input type="date" id="date" name="date" required>
+                <label for="time">Chọn giờ:</label>
+                <input type="time" id="time" name="time" required>
+                <button type="submit">Đặt Lịch</button>
+                <button type="button" class="cancel-button" onclick="cancelBooking()">Hủy Đặt</button>
+            </form>
+            <p id="confirmationMessage" style="display:none; color: green;"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
