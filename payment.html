@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Thanh Toán</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="..\assets\css\client_css\payment.css" rel="stylesheet"/>
+
+    
+
+</head>
+
+<body>
+    <header class="header">
+        <img alt="Logo" height="50" src="https://storage.googleapis.com/a1aa/image/TadJVM0tzM4PMJYxGecegyMibbHTbv4eYPC2kWs9mYWINvunA.jpg" width="50"/>
+        <nav>
+            <a href="#" class="nav-link"><i class="fas fa-home"></i> TRANG CHỦ</a>
+            <a href="#" class="nav-link"><i class="fas fa-info-circle"></i> Về SmSa</a>
+            <a href="#" class="nav-link"><i class="fas fa-clock"></i> GẦN ĐÂY NHẤT</a>
+            <a href="#" class="nav-link"><i class="fas fa-fire"></i> XU HƯỚNG</a>
+            <a href="#" class="nav-link"><i class="fas fa-calendar-check"></i> ĐẶT LỊCH</a>
+        </nav>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div class="login">
+            <button class="login-btn"><i class="fas fa-user"></i> Đăng nhập / Đăng ký</button>
+            <button class="scan-btn"><i class="fas fa-camera"></i> Scan khuôn mặt gợi ý kiểu tóc</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2><i class="fas fa-money-bill-wave"></i> PHƯƠNG THỨC THANH TOÁN</h2>
+
+        <div class="form-group">
+            <label for="payment-method" class="form-label"><i class="fas fa-credit-card"></i> Chọn phương thức thanh toán</label>
+            <select id="payment-method" class="form-select" onchange="togglePaymentDetails()">
+                <!-- <option value="">Chọn phương thức thanh toán</option> -->
+                <option value="after-service">Thanh toán sau khi sử dụng dịch vụ</option>
+                <option value="visa">Thanh toán bằng Visa</option>
+                <option value="qr">Thanh toán bằng QR Code</option>
+                <option value="credit">Thanh toán bằng thẻ tín dụng</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="payment-details" style="display: none;">
+            <label for="card-number" class="form-label"><i class="fas fa-info-circle"></i> Thông tin thanh toán</label>
+            <input type="text" id="card-number" class="form-control" placeholder="Số thẻ">
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <input type="text" id="expiry" class="form-control" placeholder="MM/YY" style="width: 50%;">
+                <input type="text" id="cvv" class="form-control" placeholder="CVV" style="width: 50%;">
+            </div>
+        </div>
+
+        <div class="form-group" id="cardholder-details" style="display: none;">
+            <label for="cardholder" class="form-label"><i class="fas fa-user"></i> Tên chủ thẻ</label>
+            <input type="text" id="cardholder" class="form-control" placeholder="Nhập tên chủ thẻ">
+        </div>
+
+        <div class="form-group button-group" style="display: flex; gap: 10px; justify-content: space-between;">
+            <button class="cancel-btn"><i class="fas fa-times"></i> HỦY</button>
+            <button class="confirm-btn"><i class="fas fa-check"></i> TIẾP TỤC</button>
+        </div>
+    </div>
+
+    <script>
+        function togglePaymentDetails() {
+            const paymentMethod = document.getElementById('payment-method').value;
+            const paymentDetails = document.getElementById('payment-details');
+            const cardholderDetails = document.getElementById('cardholder-details');
+            
+            if (paymentMethod === 'credit') {
+                paymentDetails.style.display = 'block';
+                cardholderDetails.style.display = 'block';
+            } else {
+                paymentDetails.style.display = 'none';
+                cardholderDetails.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Đặt Lịch Giữ Chỗ</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="..\assets\css\client_css\showsalons.css" rel="stylesheet"/>
+</head>
+
+<body>
+    <header class="header">
+        <img alt="Logo" height="50" src="https://storage.googleapis.com/a1aa/image/TadJVM0tzM4PMJYxGecegyMibbHTbv4eYPC2kWs9mYWINvunA.jpg" width="50"/>
+        <nav>
+            <a href="#" class="nav-link"><i class="fas fa-home"></i> TRANG CHỦ</a>
+            <a href="#" class="nav-link"><i class="fas fa-info-circle"></i> Về SmSa</a>
+            <a href="#" class="nav-link"><i class="fas fa-clock"></i> GẦN ĐÂY NHẤT</a>
+            <a href="#" class="nav-link"><i class="fas fa-fire"></i> XU HƯỚNG</a>
+            <a href="#" class="nav-link"><i class="fas fa-calendar-check"></i> ĐẶT LỊCH</a>
+        </nav>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div class="login">
+            <button class="login-btn"><i class="fas fa-user"></i> Đăng nhập / Đăng ký</button>
+            <button class="scan-btn"><i class="fas fa-camera"></i> Scan khuôn mặt gợi ý kiểu tóc</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2><i class="fas fa-store"></i> DANH SÁCH SALON</h2>
+
+        <div class="search-bar form-group">
+            <label for="search" class="form-label"><i class="fas fa-search"></i> Tìm kiếm salon</label>
+            <input type="text" id="search" class="form-control" placeholder="Nhập tên salon hoặc địa chỉ...">
+        </div>
+
+        <div class="salon-grid">
+            <div class="salon-card" onclick="selectSalon('salon1')">
+                <img src="https://storage.googleapis.com/salon-images/salon1.jpg" alt="SmSa - Cầu Giấy">
+                <div class="salon-info">
+                    <h3>SmSa - Cầu Giấy</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Cầu Giấy, Hà Nội</p>
+                    <p><i class="fas fa-star"></i> 4.8 (200+ đánh giá)</p>
+                    <p><i class="fas fa-clock"></i> Mở cửa: 8:00 - 21:00</p>
+                </div>
+            </div>
+
+            <div class="salon-card" onclick="selectSalon('salon2')">
+                <img src="https://storage.googleapis.com/salon-images/salon2.jpg" alt="SmSa - Đống Đa">
+                <div class="salon-info">
+                    <h3>SmSa - Đống Đa</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 456 Đống Đa, Hà Nội</p>
+                    <p><i class="fas fa-star"></i> 4.7 (180+ đánh giá)</p>
+                    <p><i class="fas fa-clock"></i> Mở cửa: 8:00 - 21:00</p>
+                </div>
+            </div>
+
+            <div class="salon-card" onclick="selectSalon('salon3')">
+                <img src="https://storage.googleapis.com/salon-images/salon3.jpg" alt="SmSa - Hoàn Kiếm">
+                <div class="salon-info">
+                    <h3>SmSa - Hoàn Kiếm</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 789 Hoàn Kiếm, Hà Nội</p>
+                    <p><i class="fas fa-star"></i> 4.9 (250+ đánh giá)</p>
+                    <p><i class="fas fa-clock"></i> Mở cửa: 8:00 - 21:00</p>
+                </div>
+            </div>
+
+            <div class="salon-card" onclick="selectSalon('salon4')">
+                <img src="https://storage.googleapis.com/salon-images/salon4.jpg" alt="SmSa - Hai Bà Trưng">
+                <div class="salon-info">
+                    <h3>SmSa - Hai Bà Trưng</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 321 Hai Bà Trưng, Hà Nội</p>
+                    <p><i class="fas fa-star"></i> 4.6 (150+ đánh giá)</p>
+                    <p><i class="fas fa-clock"></i> Mở cửa: 8:00 - 21:00</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group button-group" style="margin-top: 20px;">
+            <button class="view-more-btn" style="width: 100%;"><i class="fas fa-plus"></i> XEM THÊM SALON</button>
+        </div>
+
+        <div class="form-group button-group" style="display: flex; gap: 10px; justify-content: space-between;">
+            <button class="cancel-btn"><i class="fas fa-times"></i> THOÁT</button>
+            <button class="confirm-btn"><i class="fas fa-check"></i> CHỌN</button>
+        </div>
+
+    </div>
+
+        
+    </div>
+</body>
+</html>
