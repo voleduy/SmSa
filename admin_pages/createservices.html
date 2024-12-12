@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Services</title>
+    <link rel="stylesheet" href="../assets\css\admin_css\createservices.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    
+    <div class="sidebar-createservices">
+        <img alt="User Avatar" src="assets\img\logo.svg" width="80" height="80"/>
+        <h2>Staff 1</h2>
+        <a href="#"><i class="fas fa-id-card-alt"></i>Thông tin cá nhân</a>
+        <a href="#"><i class="far fa-calendar-check"></i>Lịch trình</a>
+        <a href="#"><i class="fas fa-history"></i>Lịch sử làm việc</a>
+        <a href="#"><i class="far fa-bell"></i>Thông báo</a>
+        <a href="#"><i class="far fa-paper-plane"></i>Tin nhắn</a>
+        <a href="#"><i class="fas fa-calendar-day"></i>Thông tin cuộc hẹn</a>
+        <a href="#"><i class="far fa-star"></i>Đánh giá và phản hồi</a>
+        <a href="#"><i class="fas fa-headset"></i>Liên Hệ</a>
+        <a href="#"><i class="far fa-life-ring"></i>Hỗ Trợ</a>
+        <div style="position: absolute; bottom: 20px; width: 100%; text-align: center;">
+            <img src="assets\img\IconFooter.svg" alt="IconFooter" width="125" height="125">
+        </div>
+    </div>
+
+    <div class="main-content-createservices">
+        <div class="header-createservices">
+            <input type="text" placeholder="Tìm kiếm">
+            <div class="right-menu-createservices">
+                <select title="Chọn ngôn ngữ">
+                    <option>Việt Nam</option>
+                </select>
+                <button>Stylist 1</button>
+                <i class="far fa-question-circle"></i>
+                <i class="far fa-bell"></i>
+                <i class="fas fa-sliders-h"></i>
+            </div>
+        </div>
+
+        <div class="content-createservices">
+
+            <h3 class="form-title-createservices">THÊM DỊCH VỤ MỚI</h3>
+            <form class="new-service-form-createservices">
+                <div class="form-row-createservices">
+                    <div class="form-group-createservices">
+                        <label for="service-name">Tên dịch vụ</label>
+                        <input type="text" id="service-name" name="service-name" placeholder="Nhập tên dịch vụ" required>
+                    </div>
+                    <div class="form-group-createservices">
+                        <label for="service-category">Danh mục</label>
+                        <select id="service-category" name="service-category" required>
+                            <option value="">Chọn danh mục</option>
+                            <option value="haircut">Cắt tóc</option>
+                            <option value="styling">Tạo kiểu</option>
+                            <option value="coloring">Nhuộm màu</option>
+                            <option value="treatment">Chăm sóc tóc</option>
+                        </select>
+                    </div>
+                </div>
+        
+                <div class="form-row-createservices">
+                    <div class="form-group-createservices">
+                        <label for="service-description">Mô tả</label>
+                        <textarea id="service-description" name="service-description" placeholder="Mô tả chi tiết dịch vụ" rows="3"></textarea>
+                    </div>
+                </div>
+        
+                <div class="form-row-createservices">
+                    <div class="form-group-createservices">
+                        <label for="estimated-time">Thời gian ước tính (phút)</label>
+                        <input type="number" id="estimated-time" name="estimated-time" min="10" max="240" placeholder="Nhập thời gian">
+                    </div>
+                    <div class="form-group-createservices">
+                        <label for="service-price">Giá dịch vụ (VND)</label>
+                        <input type="number" id="service-price" name="service-price" min="0" placeholder="Nhập giá dịch vụ">
+                    </div>
+                </div>
+        
+                <div class="form-row-createservices">
+                    <div class="form-group-createservices">
+                        <label for="service-images">Hình ảnh dịch vụ</label>
+                        <div class="image-upload-container-createservices">
+                            <input type="file" id="service-images" name="service-images[]" accept="image/*" multiple onchange="previewImages(event)" style="display: none;">
+                            <div class="image-preview-placeholder-createservices" onclick="document.getElementById('service-images').click()">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Tải ảnh lên </p>
+                            </div>
+                            <div id="image-preview" class="image-preview-createservices"></div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="form-actions-createservices">
+                    <button type="reset" class="btn-cancel-createservices" onclick="clearImagePreviews()">Hủy</button>
+                    <button type="submit" class="btn-submit-createservices">Thêm dịch vụ</button>
+                </div>
+            </form>
+
+            <!-- Modal để hiển thị ảnh phóng to -->
+            <div id="imageModal" class="modal-createservices">
+                <span class="close-createservices">&times;</span>
+                <img class="modal-content-createservices" id="modalImage" alt="Preview">
+            </div>
+
+            <script>
+                function previewImages(event) {
+                    const preview = document.getElementById('image-preview');
+                    preview.innerHTML = '';
+                    const files = event.target.files;
+
+                    for(let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        if (!file.type.startsWith('image/')) continue;
+
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            const imgContainer = document.createElement('div');
+                            imgContainer.className = 'preview-image-container-createservices';
+                            
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.className = 'preview-image-createservices';
+                            img.alt = file.name;
+                            
+                            // Thêm sự kiện click để mở modal
+                            img.onclick = function(e) {
+                                e.stopPropagation();
+                                openModal(this.src);
+                            };
+                            
+                            const removeBtn = document.createElement('button');
+                            removeBtn.innerHTML = '×';
+                            removeBtn.className = 'remove-image-btn-createservices';
+                            removeBtn.onclick = function(e) {
+                                e.stopPropagation();
+                                imgContainer.remove();
+                            };
+
+                            imgContainer.appendChild(img);
+                            imgContainer.appendChild(removeBtn);
+                            preview.appendChild(imgContainer);
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                }
+
+                function clearImagePreviews() {
+                    document.getElementById('image-preview').innerHTML = '';
+                }
+
+                // Hàm mở modal
+                function openModal(imgSrc) {
+                    const modal = document.getElementById('imageModal');
+                    const modalImg = document.getElementById('modalImage');
+                    modal.style.display = "block";
+                    modalImg.src = imgSrc;
+                }
+
+                // Đóng modal khi click vào nút close
+                document.querySelector('.close-createservices').onclick = function() {
+                    document.getElementById('imageModal').style.display = "none";
+                }
+
+                // Đóng modal khi click bên ngoài ảnh
+                window.onclick = function(event) {
+                    const modal = document.getElementById('imageModal');
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+
+            
+        </div>
+
+    </div>
+
+</body>
+
+</html>
